@@ -1,0 +1,41 @@
+Deploy — Google Ads compliance (jun/2026)
+=========================================
+
+ORDEM DE PUBLICAÇÃO
+-------------------
+1. Fazer backup do public_html atual no cPanel
+2. Upload via FTP/cPanel File Manager:
+
+   Raiz:
+   - .htaccess
+   - GTM-AUDIT-CHECKLIST.txt (referência interna)
+   - GOOGLE-ADS-APPEAL.txt (referência interna)
+   - SECURITY-VERIFICATION.txt (referência interna)
+
+   assets/css/:
+   - compliance-banner.css (NOVO)
+
+   Landing pages (substituir):
+   - absenteismo/index.html
+   - sinistralidade/index.html
+   - nr1-fap/index.html
+   - sistema-vs-programa/index.html
+
+3. Executar GTM-AUDIT-CHECKLIST.txt no painel GTM
+4. Validar no navegador (aba anônima) cada URL:
+   - Banner amarelo de disclaimer visível abaixo do header
+   - Textos sem "reduzir", "retorno mensurável", "em 20 minutos identificamos"
+   - DevTools > Network: sem domínios suspeitos
+
+5. Aguardar 24–72h para re-crawl do Google
+6. Google Ads > Problemas com a política > Contestar problema
+   - Colar texto de GOOGLE-ADS-APPEAL.txt
+   - NÃO usar "Dispensar"
+
+VALIDAÇÃO RÁPIDA PÓS-DEPLOY
+---------------------------
+curl -s "https://lp.spacoquality.com.br/sinistralidade/" | grep "compliance-banner"
+# Deve retornar a div do disclaimer
+
+curl -s "https://lp.spacoquality.com.br/sinistralidade/" | grep "reduzir"
+# Não deve retornar resultados

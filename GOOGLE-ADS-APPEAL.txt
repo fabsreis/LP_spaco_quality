@@ -1,0 +1,35 @@
+Texto para contestação no Google Ads (copiar após publicar as correções no servidor)
+===================================================================================
+
+Assunto: Correções aplicadas — Declarações não confiáveis e Site comprometido
+
+Prezada equipe de Políticas do Google,
+
+Identificamos e corrigimos os pontos que poderiam ter motivado as violações na campanha
+do domínio lp.spacoquality.com.br (Spaço Quality — saúde ocupacional B2B).
+
+DECLARAÇÕES NÃO CONFIÁVEIS — correções aplicadas:
+- Removemos promessas de resultado (ex.: "reduzir custos/FAP", "retorno mensurável",
+  "em 20 minutos identificamos", "menos internações evitáveis")
+- Substituímos por linguagem condicional ("pode apoiar a gestão", "indicadores
+  acompanháveis", "resultados variam")
+- Adicionamos disclaimer visível acima da dobra em todas as landing pages
+- Atualizamos meta descriptions, JSON-LD e mensagens pré-preenchidas do WhatsApp
+- Páginas corrigidas:
+  * https://lp.spacoquality.com.br/absenteismo/
+  * https://lp.spacoquality.com.br/sinistralidade/
+  * https://lp.spacoquality.com.br/nr1-fap/
+  * https://lp.spacoquality.com.br/sistema-vs-programa/
+
+SITE COMPROMETIDO — verificações realizadas:
+- Código-fonte estático auditado: sem malware, redirects ocultos ou scripts ofuscados
+- Recursos externos limitados a: Google Tag Manager, Google Fonts, wa.me (oficial)
+- Container GTM-TCVK6XH auditado e publicado em versão limpa (sem tags Custom HTML suspeitas)
+- Arquivos legados lp-*.html bloqueados/redirecionados
+- Headers de segurança configurados (.htaccess): CSP, HSTS, X-Frame-Options
+
+Solicitamos reavaliação da campanha. O site é propriedade legítima da Spaço Quality
+(CNPJ 05.911.180/0001-87), com conteúdo informativo B2B sobre gestão de saúde ocupacional.
+
+Atenciosamente,
+Equipe Spaço Quality

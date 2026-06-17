@@ -1,0 +1,31 @@
+Verificação de segurança — lp.spacoquality.com.br
+=================================================
+Data da verificação: jun/2026 (repositório local)
+
+REPOSITÓRIO LOCAL
+-----------------
+[OK] Nenhum eval/atob/document.write/base64 em HTML/JS
+[OK] Apenas domínios externos: googletagmanager.com, fonts.googleapis.com, wa.me
+[OK] HTTPS forçado via .htaccess
+[OK] CSP, HSTS, X-Frame-Options configurados no .htaccess local
+[OK] lp-*.html legados redirecionados via .htaccess (301 → páginas canônicas)
+
+SERVIDOR PUBLICADO (verificar após deploy)
+------------------------------------------
+[ ] Fazer upload de TODOS os arquivos alterados (4 LPs + assets/css/compliance-banner.css + .htaccess)
+[ ] Confirmar headers de segurança no servidor:
+    curl -sI https://lp.spacoquality.com.br/sinistralidade/ | grep -iE "content-security|strict-transport|x-frame"
+[ ] Se headers ausentes: verificar se mod_headers está ativo no LiteSpeed/cPanel
+[ ] Search Console > Segurança e ações manuais (lp.spacoquality.com.br e spacoquality.com.br)
+[ ] Safe Browsing: https://transparencyreport.google.com/safe-browsing/search?url=lp.spacoquality.com.br
+[ ] Comparar public_html no cPanel com repositório — procurar .php injetados, .htaccess alterado
+
+ACHADOS NA VERIFICAÇÃO INICIAL
+------------------------------
+- Servidor publicado ainda contém versão ANTIGA das LPs (claims "reduzir", "retorno mensurável")
+- Headers de segurança do .htaccess NÃO aparecem nas respostas HTTP atuais
+- lp-*.html retornam 403 (bloqueados) — OK, mas redirects 301 são preferíveis após deploy
+
+AÇÃO NECESSÁRIA
+---------------
+Publicar arquivos locais no hosting antes de contestar no Google Ads.

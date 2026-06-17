@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sinistralidade elevada no plano de saúde: como identificar e gerenciar as causas | Spaço Quality</title>
+<meta name="description" content="O reajuste do plano de saúde tem relação direta com os riscos da sua população. Entenda como monitorar a sinistralidade e tomar decisões baseadas em dados.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --green-deep: #00473E; --green-mid: #00604F; --green-bright: #009B72;
+  --green-light: #E8F5F1; --green-lighter: #F2FAF7; --accent: #2DBD8F;
+  --red: #B83030; --red-light: #FEF0EE; --amber: #9A6200; --amber-light: #FEF6E4;
+  --purple: #4A2780; --purple-light: #F0EAF9;
+  --black: #0E1612; --gray-dark: #3A4540; --gray: #5A6560;
+  --gray-light: #F2F5F4; --border: #D8E6E0; --white: #FFFFFF; --bg: #FAFCFB;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--black); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: white; border-bottom: 1px solid var(--border); height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
+.logo { height: 42px; width: auto; }
+.header-cta { background: var(--green-deep); color: white; padding: 9px 22px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.header-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+.article-hero { padding: 120px 24px 56px; max-width: 780px; margin: 0 auto; animation: fadeUp 0.5s ease forwards; }
+.category-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--purple-light); color: var(--purple); font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; border: 1px solid rgba(74,39,128,0.18); }
+.category-tag .dot { width: 5px; height: 5px; background: var(--purple); border-radius: 50%; }
+.article-title { font-family: 'DM Serif Display', serif; font-size: clamp(34px, 5vw, 54px); font-weight: 400; color: var(--black); line-height: 1.1; margin-bottom: 22px; }
+.article-title em { font-style: italic; color: var(--green-deep); }
+.article-lead { font-size: 18px; color: var(--gray-dark); line-height: 1.7; max-width: 640px; margin-bottom: 28px; }
+.article-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--gray); padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.meta-author { display: flex; align-items: center; gap: 8px; font-weight: 500; color: var(--black); }
+.author-avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--green-light); color: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+.meta-sep { width: 3px; height: 3px; background: var(--border); border-radius: 50%; }
+
+.offer-wrapper { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+.offer-box { background: var(--green-deep); border-radius: 16px; padding: 30px 32px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+.offer-headline { font-family: 'DM Serif Display', serif; font-size: 26px; font-weight: 400; color: white; line-height: 1.25; margin-bottom: 14px; }
+.offer-headline em { font-style: italic; color: var(--accent); }
+.offer-proof { display: flex; flex-direction: column; gap: 8px; }
+.proof-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.85); }
+.proof-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+.offer-cta-side { display: flex; flex-direction: column; align-items: center; gap: 8px; flex-shrink: 0; }
+.offer-btn { background: white; color: var(--green-deep); padding: 14px 28px; border-radius: 10px; font-size: 14px; font-weight: 700; text-decoration: none; text-align: center; white-space: nowrap; transition: all 0.2s; }
+.offer-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.22); }
+.offer-tag { font-size: 11px; color: rgba(255,255,255,0.55); text-align: center; }
+
+.content-wrap { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+
+h2 { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 400; color: var(--black); margin: 44px 0 14px; line-height: 1.25; }
+h3 { font-size: 18px; font-weight: 600; color: var(--black); margin: 28px 0 10px; line-height: 1.35; }
+p { font-size: 16px; color: var(--gray-dark); line-height: 1.8; margin-bottom: 16px; }
+strong { color: var(--black); font-weight: 600; }
+
+.pull-quote { border-left: 4px solid var(--accent); padding: 16px 22px; margin: 32px 0; background: var(--green-lighter); border-radius: 0 8px 8px 0; }
+.pull-quote p { font-family: 'DM Serif Display', serif; font-size: 20px; font-style: italic; color: var(--green-deep); line-height: 1.5; margin: 0; }
+
+.risk-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; background: white; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.risk-table th { background: var(--green-deep); color: white; padding: 12px 16px; text-align: left; font-size: 12px; font-weight: 600; letter-spacing: 0.3px; }
+.risk-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); color: var(--gray-dark); vertical-align: middle; }
+.risk-table tr:last-child td { border-bottom: none; }
+.risk-table tr:nth-child(even) td { background: var(--bg); }
+.badge-red { background: var(--red-light); color: var(--red); font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 100px; white-space: nowrap; }
+.badge-amber { background: var(--amber-light); color: var(--amber); font-size: 11px; font-weight: 600; padding: 2px 10px; border-radius: 100px; white-space: nowrap; }
+
+.highlight-box { border-left: 4px solid; border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 28px 0; }
+.highlight-box.amber { background: var(--amber-light); border-color: var(--amber); }
+.highlight-box.green { background: var(--green-lighter); border-color: var(--green-bright); }
+.highlight-box-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.highlight-box.amber .highlight-box-title { color: var(--amber); }
+.highlight-box.green .highlight-box-title { color: var(--green-deep); }
+.highlight-box p { font-size: 14px; margin: 0; line-height: 1.6; }
+.highlight-box.amber p { color: #5A3A00; }
+.highlight-box.green p { color: #003028; }
+
+.info-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; margin: 28px 0; }
+.info-box-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--green-deep); margin-bottom: 12px; }
+.info-box p { margin-bottom: 0; }
+
+.cause-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+.cause-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 18px; position: relative; overflow: hidden; }
+.cause-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.cause-card.high::before { background: var(--red); }
+.cause-card.medium::before { background: var(--amber); }
+.cause-card-name { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 6px; }
+.cause-card-desc { font-size: 12px; color: var(--gray); line-height: 1.5; margin-bottom: 8px; }
+.cause-card-note { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; }
+.cause-card.high .cause-card-note { color: var(--red); }
+.cause-card.medium .cause-card-note { color: var(--amber); }
+
+.equation-wrap { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 28px; margin: 28px 0; text-align: center; }
+.eq-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; color: var(--gray); margin-bottom: 20px; }
+.eq-row { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
+.eq-box { background: var(--gray-light); border-radius: 8px; padding: 14px 20px; text-align: center; min-width: 120px; }
+.eq-box.bad { background: var(--red-light); }
+.eq-box.good { background: var(--green-light); }
+.eq-value { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--black); line-height: 1; }
+.eq-box.bad .eq-value { color: var(--red); }
+.eq-box.good .eq-value { color: var(--green-deep); }
+.eq-desc { font-size: 11px; color: var(--gray); margin-top: 4px; line-height: 1.3; }
+.eq-op { font-size: 22px; color: var(--gray); padding: 0 12px; font-weight: 300; }
+.eq-note { font-size: 12px; color: var(--gray); margin-top: 18px; line-height: 1.5; }
+
+.steps { display: flex; flex-direction: column; gap: 14px; margin: 20px 0; }
+.step-item { display: flex; gap: 16px; align-items: flex-start; background: white; border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+.step-num { width: 36px; height: 36px; border-radius: 8px; background: var(--green-deep); color: white; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0; }
+.step-body h4 { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.step-body p { font-size: 14px; color: var(--gray); margin: 0; line-height: 1.5; }
+
+.timeline { display: flex; flex-direction: column; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; margin: 24px 0; }
+.timeline-item { background: white; padding: 20px 22px; display: flex; gap: 16px; align-items: flex-start; }
+.timeline-month { background: var(--green-deep); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+.timeline-body h4 { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.timeline-body p { font-size: 14px; color: var(--gray); margin: 0; line-height: 1.5; }
+
+.outcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+.outcome-card { background: white; border: 1px solid var(--border); border-left: 3px solid var(--green-bright); border-radius: 0 10px 10px 0; padding: 16px 18px; }
+.outcome-card-name { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.outcome-card-desc { font-size: 13px; color: var(--gray); line-height: 1.5; }
+
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+.checklist li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--gray-dark); line-height: 1.55; }
+.check-icon { width: 22px; height: 22px; border-radius: 6px; background: var(--green-light); color: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+.mid-cta { background: var(--green-deep); border-radius: 16px; padding: 32px; margin: 44px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.mid-cta-text h3 { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: white; margin: 0 0 6px; }
+.mid-cta-text p { font-size: 13px; color: rgba(255,255,255,0.75); margin: 0; line-height: 1.5; }
+.mid-cta-btn { background: white; color: var(--green-deep); padding: 13px 26px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: all 0.2s; flex-shrink: 0; }
+.mid-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+.divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+.bottom-cta { background: linear-gradient(135deg, var(--green-deep) 0%, #003028 100%); border-radius: 20px; padding: 48px 40px; text-align: center; margin: 48px 0 0; position: relative; overflow: hidden; }
+.bottom-cta::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; border-radius: 50%; background: rgba(45,189,143,0.1); }
+.bottom-cta::after { content: ''; position: absolute; bottom: -60px; left: -20px; width: 160px; height: 160px; border-radius: 50%; background: rgba(45,189,143,0.07); }
+.bottom-cta-badge { display: inline-block; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); font-size: 11px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+.bottom-cta h2 { font-family: 'DM Serif Display', serif; font-size: clamp(24px, 4vw, 36px); color: white; margin: 0 0 12px; font-weight: 400; }
+.bottom-cta p { font-size: 15px; color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 28px; line-height: 1.65; }
+.bottom-cta-btn { display: inline-block; background: white; color: var(--green-deep); padding: 16px 40px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.2s; position: relative; z-index: 1; }
+.bottom-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+.bottom-cta-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 12px; position: relative; z-index: 1; }
+.bottom-cta-features { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 20px 0 28px; }
+.bottom-cta-features span { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 100px; }
+
+/* ── FOOTER CONFORMIDADE ── */
+.site-footer { border-top: 1px solid var(--border); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.footer-logo { height: 40px; width: auto; max-width: 180px; object-fit: contain; display: block; }
+.footer-center { display: flex; flex-direction: column; gap: 4px; text-align: center; }
+.footer-text { font-size: 12px; color: var(--gray); }
+.footer-cnpj { font-size: 11px; color: var(--gray); }
+.footer-links { display: flex; align-items: center; gap: 8px; }
+.footer-links a { font-size: 12px; color: var(--green-deep); text-decoration: none; }
+.footer-links a:hover { text-decoration: underline; }
+.footer-links span { color: var(--border); }
+
+@media (max-width: 640px) {
+  .site-header { padding: 0 18px; height: 56px; } .logo { height: 34px; } .header-cta { padding: 8px 14px; font-size: 12px; }
+  .article-hero { padding: 80px 18px 40px; } .offer-wrapper { padding: 0 18px; }
+  .offer-box { grid-template-columns: 1fr; padding: 24px 20px; }
+  .offer-cta-side { align-items: flex-start; } .offer-btn { width: 100%; display: block; }
+  .cause-grid { grid-template-columns: 1fr; } .outcome-grid { grid-template-columns: 1fr; }
+  .eq-row { gap: 4px; } .eq-box { min-width: 80px; padding: 10px 12px; } .eq-value { font-size: 18px; }
+  .mid-cta { flex-direction: column; align-items: flex-start; } .mid-cta-btn { width: 100%; text-align: center; }
+  .risk-table { font-size: 12px; } .risk-table th, .risk-table td { padding: 10px 12px; }
+  .bottom-cta { padding: 36px 22px; }
+  .site-footer { padding: 20px 18px; flex-direction: column; align-items: flex-start; }
+  .footer-center { text-align: left; }
+  .content-wrap { padding: 0 18px 60px; }
+}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <img class="logo" src="/assets/images/logos/1-Novo-logo-spaco-quality-Transparente.png" alt="Spaço Quality">
+  <a href="https://wa.me/5511983811360?text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20estou%20com%20problema%20de%20sinistralidade%20alta%20no%20plano%20de%20sa%C3%BAde%20da%20empresa.%20Gostaria%20de%20entender%20como%20a%20Spa%C3%A7o%20Quality%20pode%20nos%20ajudar%20a%20reduzir%20esse%20custo%20com%20dados." target="_blank" rel="noopener" class="header-cta" onclick="gtmWhatsApp('header')">Falar com especialista →</a>
+</header>
+
+<div class="article-hero">
+  <div class="category-tag"><span class="dot"></span> Sinistralidade &amp; Plano de Saúde</div>
+  <h1 class="article-title">Sinistralidade elevada:<br><em>como identificar o que está gerando o custo</em></h1>
+  <p class="article-lead">O reajuste do plano de saúde tem relação direta com os riscos de saúde da sua população. Entenda como monitorar a sinistralidade, identificar os grupos que mais impactam o indicador e estruturar uma gestão baseada em dados.</p>
+  <div class="article-meta">
+    <div class="meta-author"><div class="author-avatar">SQ</div> Equipe Spaço Quality</div>
+    <span class="meta-sep"></span> Saúde Corporativa &amp; Indicadores
+    <span class="meta-sep"></span> Atualizado jun. 2026 · 9 min de leitura
+  </div>
+</div>
+
+<div class="offer-wrapper">
+  <div class="offer-box">
+    <div>
+      <div class="offer-headline">Análise de sinistralidade<br><em>em 20 minutos</em></div>
+      <div class="offer-proof">
+        <div class="proof-item"><span class="proof-dot"></span>Identificamos os grupos que mais impactam o custo e por onde começar</div>
+        <div class="proof-item"><span class="proof-dot"></span>Gestão do que você já tem — sem necessidade de trocar de operadora</div>
+        <div class="proof-item"><span class="proof-dot"></span>Acompanhamento estruturado que aparece como dado na próxima renovação</div>
+      </div>
+    </div>
+    <div class="offer-cta-side">
+      <a href="https://wa.me/5511983811360?text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20estou%20com%20problema%20de%20sinistralidade%20alta%20no%20plano%20de%20sa%C3%BAde%20da%20empresa.%20Gostaria%20de%20entender%20como%20a%20Spa%C3%A7o%20Quality%20pode%20nos%20ajudar%20a%20reduzir%20esse%20custo%20com%20dados." target="_blank" rel="noopener" class="offer-btn" onclick="gtmWhatsApp('offer_box')">Agendar análise gratuita →</a>
+      <span class="offer-tag">20 min · Sem compromisso</span>
+    </div>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <h2>O plano de saúde não está ficando mais caro por acaso</h2>
+  <p>Todos os anos muitas organizações recebem o reajuste do plano, tentam negociar, e acabam aceitando um aumento que parece inevitável. Mas existe uma pergunta que raramente é feita: <strong>o que está gerando esse custo?</strong></p>
+  <p>A operadora administra o plano. Mas quem determina o valor da conta é a saúde da população atendida. Sem entender o que está gerando utilização, internações, procedimentos e afastamentos, fica difícil estruturar uma gestão que impacte o indicador.</p>
+
+  <div class="pull-quote">
+    <p>"Trocar de operadora sem gerenciar os riscos da população é como mudar de banco sem mudar o que se gasta. O custo vai junto."</p>
+  </div>
+
+  <h2>O problema geralmente não é o plano. É o que está sendo utilizado através dele.</h2>
+  <p>Quando a sinistralidade sobe, as organizações costumam buscar soluções em troca de operadora, redução de cobertura, ou aumento de coparticipação. Essas medidas podem gerar alívio temporário — mas dificilmente resolvem a questão de forma estrutural.</p>
+  <p>A origem do custo está nos eventos de saúde da população: doenças crônicas descompensadas, internações, saúde mental não acompanhada, problemas musculoesqueléticos e atendimentos de urgência. Sem atuar sobre esses fatores, o custo tende a reaparecer no próximo ciclo.</p>
+
+  <h2>Por que a sinistralidade sobe mesmo quando a empresa investe em saúde</h2>
+
+  <table class="risk-table">
+    <thead>
+      <tr>
+        <th>O que a empresa faz</th>
+        <th>Por que não move a sinistralidade</th>
+        <th>O que estava faltando</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>SIPAT anual e campanhas de conscientização</td><td>Não identifica quem está em risco</td><td><span class="badge-amber">Triagem individual</span></td></tr>
+      <tr><td>Plano de saúde com ampla cobertura</td><td>Paga o evento, mas não previne</td><td><span class="badge-amber">Gestão de saúde populacional</span></td></tr>
+      <tr><td>Convênio com academia ou app de bem-estar</td><td>Adesão baixa, sem foco no grupo de risco</td><td><span class="badge-amber">Intervenção segmentada</span></td></tr>
+      <tr><td>Relatórios de sinistralidade disponíveis</td><td>Dado existe mas não vira ação</td><td><span class="badge-red">Inteligência de dados de saúde</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box amber">
+    <div class="highlight-box-title">⚠️ Em muitas operações, um pequeno grupo concentra grande parte do custo</div>
+    <p>Esse grupo geralmente tem perfil clínico identificável: doença crônica não controlada, saúde mental comprometida ou histórico de internações. Sem identificar e acompanhar esse perfil, qualquer ação de saúde tende a ter impacto marginal no custo total.</p>
+  </div>
+
+  <h2>O que a sinistralidade indica sobre a sua população</h2>
+  <p>Quando analisamos contratos empresariais, encontramos grupos que frequentemente concentram boa parte dos custos:</p>
+
+  <div class="cause-grid">
+    <div class="cause-card high"><div class="cause-card-name">Doenças Crônicas</div><div class="cause-card-desc">Hipertensão, diabetes, obesidade e doenças cardiovasculares. Um dos principais fatores de custo assistencial.</div><div class="cause-card-note">Alto potencial de acompanhamento preventivo</div></div>
+    <div class="cause-card high"><div class="cause-card-name">Saúde Mental</div><div class="cause-card-desc">Ansiedade, depressão, burnout e transtornos relacionados ao estresse. Crescimento acelerado nos últimos anos.</div><div class="cause-card-note">Afeta produtividade e absenteísmo</div></div>
+    <div class="cause-card medium"><div class="cause-card-name">Problemas Musculoesqueléticos</div><div class="cause-card-desc">Dores lombares, LER/DORT e limitações funcionais. Impactam plano, afastamentos e produtividade.</div><div class="cause-card-note">Alta taxa de identificação precoce</div></div>
+    <div class="cause-card medium"><div class="cause-card-name">Eventos Agudos</div><div class="cause-card-desc">Internações, cirurgias e atendimentos de urgência que representam o estágio final de riscos não identificados anteriormente.</div><div class="cause-card-note">Evitáveis com gestão ativa</div></div>
+  </div>
+
+  <div class="mid-cta">
+    <div class="mid-cta-text">
+      <h3>Qual é o perfil de custo da sua sinistralidade?</h3>
+      <p>Em 20 minutos identificamos os grupos que estão impactando o indicador e por onde começar.</p>
+    </div>
+    <a href="https://wa.me/5511983811360?text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20estou%20com%20problema%20de%20sinistralidade%20alta%20no%20plano%20de%20sa%C3%BAde%20da%20empresa.%20Gostaria%20de%20entender%20como%20a%20Spa%C3%A7o%20Quality%20pode%20nos%20ajudar%20a%20reduzir%20esse%20custo%20com%20dados." target="_blank" rel="noopener" class="mid-cta-btn" onclick="gtmWhatsApp('mid_article')">Agendar análise →</a>
+  </div>
+
+  <h2>Como a sinistralidade é calculada</h2>
+
+  <div class="equation-wrap">
+    <div class="eq-label">Fórmula da Taxa de Sinistralidade</div>
+    <div class="eq-row">
+      <div class="eq-box bad"><div class="eq-value">Custo Assistencial</div><div class="eq-desc">Consultas + internações + exames + medicamentos</div></div>
+      <div class="eq-op">÷</div>
+      <div class="eq-box"><div class="eq-value">Valor pago à operadora</div><div class="eq-desc">Total de mensalidades no período</div></div>
+      <div class="eq-op">×</div>
+      <div class="eq-box good"><div class="eq-value">100</div><div class="eq-desc">= Taxa %</div></div>
+    </div>
+    <p class="eq-note">Referência de mercado: sinistralidade <strong>abaixo de 70%</strong> é considerada equilibrada. Entre 70–80% é zona de atenção. <strong>Acima de 80%</strong> indica necessidade de gestão ativa do perfil de saúde da população.</p>
+  </div>
+
+  <p>O indicador isolado raramente explica a causa. Duas empresas com a mesma taxa podem exigir estratégias completamente diferentes. É necessário entender <strong>quem está gerando o custo, por qual causa e se esse custo era prevenível</strong>.</p>
+
+  <div class="info-box">
+    <div class="info-box-label">📋 O que solicitar para a operadora antes de qualquer decisão</div>
+    <p>Peça o relatório de sinistralidade estratificado por: faixa etária, sexo, principais CIDs, tipo de evento (consulta, internação, exame, urgência) e concentração de custo por beneficiário. Esse relatório é o ponto de partida para uma análise estruturada — e a operadora é obrigada a fornecê-lo.</p>
+  </div>
+
+  <h2>Como estruturar a gestão da sinistralidade</h2>
+
+  <div class="steps">
+    <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Diagnóstico Populacional</h4><p>Avaliação da população completa para compreender os fatores que impulsionam os custos — não apenas dos maiores utilizadores ou casos mais caros.</p></div></div>
+    <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Estratificação de Risco</h4><p>Identificação dos grupos que apresentam maior probabilidade de gerar eventos de alto custo — com perfil clínico, não apenas histórico de uso.</p></div></div>
+    <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Intervenção Direcionada</h4><p>Acompanhamento específico para cada perfil de risco — crônicos, musculoesqueléticos e saúde mental com abordagens distintas.</p></div></div>
+    <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Monitoramento Contínuo</h4><p>Avaliação permanente da evolução dos indicadores assistenciais com dashboard atualizado mensalmente.</p></div></div>
+  </div>
+
+  <h2>Trajetória de 18 meses para um indicador mais saudável</h2>
+
+  <div class="timeline">
+    <div class="timeline-item"><span class="timeline-month">Meses 1–2</span><div class="timeline-body"><h4>Diagnóstico e mapeamento de risco</h4><p>Triagem clínica dos grupos de maior custo. Estratificação por colaborador: crônico não controlado, risco psicossocial elevado, risco metabólico.</p></div></div>
+    <div class="timeline-item"><span class="timeline-month">Meses 3–6</span><div class="timeline-body"><h4>Intervenção ativa nos grupos de alto risco</h4><p>Acompanhamento médico individual para crônicos, fisioterapia preventiva para musculoesqueléticos e suporte psicossocial para saúde mental.</p></div></div>
+    <div class="timeline-item"><span class="timeline-month">Meses 6–12</span><div class="timeline-body"><h4>Redução de eventos agudos acompanhados</h4><p>Crônicos controlados geram menos internações e urgências. O impacto começa a aparecer no relatório de sinistralidade.</p></div></div>
+    <div class="timeline-item"><span class="timeline-month">Meses 12–18</span><div class="timeline-body"><h4>Renovação com dados estruturados</h4><p>Com sinistralidade em trajetória positiva e dados de gestão documentados, a empresa chega à renovação em posição negocial diferente.</p></div></div>
+  </div>
+
+  <h2>O que muda quando a empresa passa a acompanhar a saúde</h2>
+
+  <div class="outcome-grid">
+    <div class="outcome-card"><div class="outcome-card-name">Menos internações evitáveis</div><div class="outcome-card-desc">Doenças crônicas controladas geram menos eventos de alto custo assistencial.</div></div>
+    <div class="outcome-card"><div class="outcome-card-name">Menos afastamentos</div><div class="outcome-card-desc">A saúde da população é acompanhada e os riscos são identificados com antecedência.</div></div>
+    <div class="outcome-card"><div class="outcome-card-name">Mais previsibilidade financeira</div><div class="outcome-card-desc">A organização passa a compreender os fatores que impactam a renovação do contrato.</div></div>
+    <div class="outcome-card"><div class="outcome-card-name">Dados para negociação</div><div class="outcome-card-desc">Indicadores estruturados fortalecem a posição da empresa perante a operadora.</div></div>
+  </div>
+
+  <div class="highlight-box green">
+    <div class="highlight-box-title">✓ Como apresentar saúde para o CFO</div>
+    <p>Um programa de gestão de saúde com acompanhamento de indicadores deixa de ser despesa de RH e passa a ser discutido como investimento com retorno mensurável. Absenteísmo, sinistralidade, FAP e turnover são os dados que conectam saúde a resultado financeiro. Empresas mais maduras tratam saúde como ativo estratégico — não como linha de benefícios.</p>
+  </div>
+
+  <h2>Perguntas para levar na próxima revisão do plano</h2>
+  <ul class="checklist">
+    <li><div class="check-icon">✓</div><span>Qual percentual do custo está concentrado nos 10% de maiores utilizadores? Quem são esses beneficiários por perfil clínico?</span></li>
+    <li><div class="check-icon">✓</div><span>Qual o CID mais frequente em internações e qual o custo médio por evento?</span></li>
+    <li><div class="check-icon">✓</div><span>Qual a evolução da sinistralidade nos últimos 3 anos?</span></li>
+    <li><div class="check-icon">✓</div><span>A operadora fornece dados de saúde populacional estratificados ou apenas relatório de custo agregado?</span></li>
+    <li><div class="check-icon">✓</div><span>Existe cláusula de ajuste por melhora de indicadores na proposta de renovação?</span></li>
+  </ul>
+
+  <hr class="divider">
+
+  <div class="bottom-cta">
+    <div class="bottom-cta-badge">Análise gratuita · 20 minutos</div>
+    <h2>Entenda o que está impactando<br>sua sinistralidade</h2>
+    <p>Nossa equipe analisa o perfil de custo da sua operação e aponta os grupos de risco e por onde começar a trabalhar o indicador — sem custo e sem compromisso.</p>
+    <div class="bottom-cta-features">
+      <span>✓ Diagnóstico populacional</span>
+      <span>✓ Perfil de risco da população</span>
+      <span>✓ Principais fatores de custo</span>
+      <span>✓ Oportunidades de acompanhamento preventivo</span>
+      <span>✓ Estratégias para gestão da sinistralidade</span>
+    </div>
+    <a href="https://wa.me/5511983811360?text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20estou%20com%20problema%20de%20sinistralidade%20alta%20no%20plano%20de%20sa%C3%BAde%20da%20empresa.%20Gostaria%20de%20entender%20como%20a%20Spa%C3%A7o%20Quality%20pode%20nos%20ajudar%20a%20reduzir%20esse%20custo%20com%20dados." target="_blank" rel="noopener" class="bottom-cta-btn" onclick="gtmWhatsApp('bottom_cta')">Agendar Análise de Sinistralidade →</a>
+    <p class="bottom-cta-sub">Resposta em até 1 hora em horário comercial · Sem compromisso.</p>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <img class="footer-logo" src="/assets/images/logos/1-Novo-logo-spaco-quality-Transparente.png" alt="Spaço Quality">
+  <div class="footer-center">
+    <p class="footer-text">© 2026 Spaço Quality · Inteligência em Saúde Ocupacional · Todos os direitos reservados</p>
+    <p class="footer-cnpj">CNPJ 05.911.180/0001-87</p>
+  </div>
+  <div class="footer-links">
+    <a href="/politica-de-privacidade.html">Política de Privacidade</a>
+    <span>·</span>
+    <a href="/termos-de-servico.html">Termos de Serviço</a>
+  </div>
+</footer>
+
+<script>
+  function gtmWhatsApp(position) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'whatsapp_click', click_position: position, click_url: 'https://wa.me/5511983811360', page_topic: 'sinistralidade_plano_saude', campaign_source: 'google_ads' });
+  }
+</script>
+</body>
+</html>

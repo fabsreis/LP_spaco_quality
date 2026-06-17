@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O que diferencia um sistema de um programa de saúde corporativa | Spaço Quality</title>
+<meta name="description" content="Programas tradicionais entregam atividades. Um sistema de gestão acompanha indicadores e permite decisões baseadas em dados. Conheça a metodologia da Spaço Quality.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --green-deep: #00473E; --green-mid: #00604F; --green-bright: #009B72;
+  --green-light: #E8F5F1; --green-lighter: #F2FAF7; --accent: #2DBD8F;
+  --red: #B83030; --red-light: #FEF0EE; --amber: #9A6200; --amber-light: #FEF6E4;
+  --black: #0E1612; --gray-dark: #3A4540; --gray: #5A6560;
+  --gray-light: #F2F5F4; --border: #D8E6E0; --white: #FFFFFF; --bg: #FAFCFB;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--black); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: white; border-bottom: 1px solid var(--border); height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
+.logo { height: 42px; width: auto; }
+.header-cta { background: var(--green-deep); color: white; padding: 9px 22px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.header-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+.article-hero { padding: 120px 24px 56px; max-width: 780px; margin: 0 auto; animation: fadeUp 0.5s ease forwards; }
+.category-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--green-light); color: var(--green-deep); font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; border: 1px solid rgba(0,71,62,0.18); }
+.category-tag .dot { width: 5px; height: 5px; background: var(--green-bright); border-radius: 50%; }
+.article-title { font-family: 'DM Serif Display', serif; font-size: clamp(34px, 5vw, 54px); font-weight: 400; color: var(--black); line-height: 1.1; margin-bottom: 22px; }
+.article-title em { font-style: italic; color: var(--green-deep); }
+.article-lead { font-size: 18px; color: var(--gray-dark); line-height: 1.7; max-width: 640px; margin-bottom: 28px; }
+.article-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--gray); padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.meta-author { display: flex; align-items: center; gap: 8px; font-weight: 500; color: var(--black); }
+.author-avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--green-light); color: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+.meta-sep { width: 3px; height: 3px; background: var(--border); border-radius: 50%; }
+
+.content-wrap { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+
+h2 { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 400; color: var(--black); margin: 44px 0 14px; line-height: 1.25; }
+h3 { font-size: 18px; font-weight: 600; color: var(--black); margin: 28px 0 10px; }
+p { font-size: 16px; color: var(--gray-dark); line-height: 1.8; margin-bottom: 16px; }
+strong { color: var(--black); font-weight: 600; }
+
+.pull-quote { border-left: 4px solid var(--accent); padding: 16px 22px; margin: 32px 0; background: var(--green-lighter); border-radius: 0 8px 8px 0; }
+.pull-quote p { font-family: 'DM Serif Display', serif; font-size: 20px; font-style: italic; color: var(--green-deep); line-height: 1.5; margin: 0; }
+
+.compare-table { width: 100%; border-collapse: collapse; margin: 28px 0; background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); font-size: 14px; }
+.compare-table th { padding: 14px 18px; text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.3px; }
+.compare-table th.col-label { background: var(--gray-light); color: var(--gray); text-align: left; width: 35%; }
+.compare-table th.col-bad { background: #FFF5F5; color: var(--red); border-left: 1px solid var(--border); }
+.compare-table th.col-good { background: var(--green-deep); color: white; }
+.compare-table td { padding: 13px 18px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table td.row-label { font-size: 13px; font-weight: 500; color: var(--black); background: var(--bg); }
+.compare-table td.col-bad { text-align: center; color: var(--red); background: #FFFAFA; border-left: 1px solid var(--border); }
+.compare-table td.col-good { text-align: center; color: var(--green-deep); background: var(--green-lighter); font-weight: 600; }
+
+.maturity-steps { display: flex; flex-direction: column; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; margin: 28px 0; }
+.maturity-item { background: white; padding: 18px 22px; display: flex; align-items: flex-start; gap: 16px; }
+.maturity-num { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: white; flex-shrink: 0; margin-top: 2px; }
+.maturity-num.n1 { background: var(--gray); }
+.maturity-num.n2 { background: var(--amber); }
+.maturity-num.n3 { background: var(--green-bright); }
+.maturity-num.n4 { background: var(--green-deep); }
+.maturity-body h4 { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.maturity-body p { font-size: 14px; color: var(--gray); margin: 0; line-height: 1.5; }
+
+.dim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+.dim-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 20px; position: relative; overflow: hidden; }
+.dim-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--green-bright); }
+.dim-icon { font-size: 22px; margin-bottom: 8px; }
+.dim-name { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.dim-desc { font-size: 12px; color: var(--gray); line-height: 1.5; }
+
+.steps { display: flex; flex-direction: column; gap: 14px; margin: 20px 0; }
+.step-item { display: flex; gap: 16px; align-items: flex-start; background: white; border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+.step-num { width: 36px; height: 36px; border-radius: 8px; background: var(--green-deep); color: white; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0; }
+.step-body h4 { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.step-body p { font-size: 14px; color: var(--gray); margin: 0; line-height: 1.5; }
+
+.dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 24px 0; }
+.dashboard-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+.dashboard-card-icon { font-size: 20px; margin-bottom: 8px; }
+.dashboard-card-name { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.dashboard-card-desc { font-size: 12px; color: var(--gray); line-height: 1.4; }
+
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+.checklist li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--gray-dark); line-height: 1.55; }
+.check-icon { width: 22px; height: 22px; border-radius: 6px; background: var(--green-light); color: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+.timeline { display: flex; flex-direction: column; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; margin: 24px 0; }
+.timeline-item { background: white; padding: 20px 22px; display: flex; gap: 16px; align-items: flex-start; }
+.timeline-month { background: var(--green-deep); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 100px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+.timeline-body h4 { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.timeline-body p { font-size: 14px; color: var(--gray); margin: 0; line-height: 1.5; }
+
+.mid-cta { background: var(--green-deep); border-radius: 16px; padding: 32px; margin: 44px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.mid-cta-text h3 { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: white; margin: 0 0 6px; }
+.mid-cta-text p { font-size: 13px; color: rgba(255,255,255,0.75); margin: 0; line-height: 1.5; }
+.mid-cta-btn { background: white; color: var(--green-deep); padding: 13px 26px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: all 0.2s; flex-shrink: 0; }
+.mid-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+.highlight-box { border-left: 4px solid; border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 28px 0; }
+.highlight-box.green { background: var(--green-lighter); border-color: var(--green-bright); }
+.highlight-box-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.highlight-box.green .highlight-box-title { color: var(--green-deep); }
+.highlight-box p { font-size: 14px; margin: 0; line-height: 1.6; }
+.highlight-box.green p { color: #003028; }
+
+.divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+.bottom-cta { background: linear-gradient(135deg, var(--green-deep) 0%, #003028 100%); border-radius: 20px; padding: 48px 40px; text-align: center; margin: 48px 0 0; position: relative; overflow: hidden; }
+.bottom-cta::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; border-radius: 50%; background: rgba(45,189,143,0.1); }
+.bottom-cta::after { content: ''; position: absolute; bottom: -60px; left: -20px; width: 160px; height: 160px; border-radius: 50%; background: rgba(45,189,143,0.07); }
+.bottom-cta-badge { display: inline-block; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); font-size: 11px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+.bottom-cta h2 { font-family: 'DM Serif Display', serif; font-size: clamp(24px, 4vw, 36px); color: white; margin: 0 0 12px; font-weight: 400; }
+.bottom-cta p { font-size: 15px; color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 28px; line-height: 1.65; }
+.bottom-cta-btn { display: inline-block; background: white; color: var(--green-deep); padding: 16px 40px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.2s; position: relative; z-index: 1; }
+.bottom-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+.bottom-cta-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 12px; position: relative; z-index: 1; }
+.bottom-cta-features { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 20px 0 28px; }
+.bottom-cta-features span { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 100px; }
+
+/* ── FOOTER CONFORMIDADE ── */
+.site-footer { border-top: 1px solid var(--border); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.footer-logo { height: 40px; width: auto; max-width: 180px; object-fit: contain; display: block; }
+.footer-center { display: flex; flex-direction: column; gap: 4px; text-align: center; }
+.footer-text { font-size: 12px; color: var(--gray); }
+.footer-cnpj { font-size: 11px; color: var(--gray); }
+.footer-links { display: flex; align-items: center; gap: 8px; }
+.footer-links a { font-size: 12px; color: var(--green-deep); text-decoration: none; }
+.footer-links a:hover { text-decoration: underline; }
+.footer-links span { color: var(--border); }
+
+@media (max-width: 640px) {
+  .site-header { padding: 0 18px; height: 56px; } .logo { height: 34px; } .header-cta { padding: 8px 14px; font-size: 12px; }
+  .article-hero { padding: 80px 18px 40px; } .dim-grid { grid-template-columns: 1fr; }
+  .dashboard-grid { grid-template-columns: 1fr; } .compare-table { font-size: 12px; }
+  .compare-table th, .compare-table td { padding: 10px 12px; }
+  .mid-cta { flex-direction: column; align-items: flex-start; } .mid-cta-btn { width: 100%; text-align: center; }
+  .bottom-cta { padding: 36px 22px; }
+  .site-footer { padding: 20px 18px; flex-direction: column; align-items: flex-start; }
+  .footer-center { text-align: left; }
+  .content-wrap { padding: 0 18px 60px; }
+}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <img class="logo" src="/assets/images/logos/1-Novo-logo-spaco-quality-Transparente.png" alt="Spaço Quality">
+  <a href="https://wa.me/5511983811360?text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20gostaria%20de%20entender%20como%20a%20Spa%C3%A7o%20Quality%20funciona%20como%20sistema%20de%20gest%C3%A3o%20de%20sa%C3%BAde%20corporativa.%20Quero%20marcar%20uma%20reuni%C3%A3o%20de%20diagn%C3%B3stico." target="_blank" rel="noopener" class="header-cta" onclick="gtmWhatsApp('header')">Agendar diagnóstico →</a>
+</header>
+
+<div class="article-hero">
+  <div class="category-tag"><span class="dot"></span> Gestão de Saúde com Dados</div>
+  <h1 class="article-title">O que diferencia um sistema<br><em>de um programa de saúde corporativa</em></h1>
+  <p class="article-lead">Programas tradicionais registram atividades realizadas. Um sistema de gestão acompanha indicadores, organiza dados populacionais e apoia decisões baseadas em evidências. Entenda como essa diferença impacta os resultados da sua organização.</p>
+  <div class="article-meta">
+    <div class="meta-author"><div class="author-avatar">SQ</div> Equipe Spaço Quality</div>
+    <span class="meta-sep"></span> Inteligência em Saúde Corporativa
+    <span class="meta-sep"></span> Atualizado jun. 2026 · 10 min de leitura
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <h2>Sua empresa investe em saúde. Mas consegue acompanhar os indicadores?</h2>
+  <p>A maioria das organizações realiza ações de saúde corporativa — campanhas, palestras, SIPAT, benefícios de bem-estar. Mas quando chega a reunião com a diretoria, RH ou CFO, algumas perguntas costumam ficar sem resposta:</p>
+
+  <ul class="checklist">
+    <li><div class="check-icon" style="background:var(--red-light);color:var(--red);">?</div><span>O absenteísmo apresentou variação? A sinistralidade foi monitorada ao longo do ano?</span></li>
+    <li><div class="check-icon" style="background:var(--red-light);color:var(--red);">?</div><span>O FAP está sendo acompanhado? É possível correlacionar investimento com indicadores de saúde?</span></li>
+  </ul>
+
+  <p>Se essas respostas não estão disponíveis, sua empresa provavelmente tem um programa de saúde. Mas ainda não possui um <strong>sistema de gestão da saúde</strong>.</p>
+
+  <div class="pull-quote">
+    <p>"Ação sem dado é custo sem visibilidade. Dado sem ação é relatório arquivado. Sistema é quando os dois funcionam juntos e geram informação para decidir."</p>
+  </div>
+
+  <h2>Programa ou Sistema: a diferença na prática</h2>
+  <p>A diferença não está na sofisticação das atividades. Está em como a organização acompanha as decisões sobre saúde e monitora se as ações produziram resultados observáveis.</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th class="col-label">Critério</th>
+        <th class="col-bad">Programa Tradicional</th>
+        <th class="col-good">Sistema Spaço Quality</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="row-label">Diagnóstico</td><td class="col-bad">Pontual ou inexistente</td><td class="col-good">Toda a população</td></tr>
+      <tr><td class="row-label">Tomada de decisão</td><td class="col-bad">Baseada em percepção</td><td class="col-good">Baseada em dados</td></tr>
+      <tr><td class="row-label">Intervenção</td><td class="col-bad">Igual para todos</td><td class="col-good">Estratificada por risco</td></tr>
+      <tr><td class="row-label">Indicadores acompanhados</td><td class="col-bad">Participação e adesão</td><td class="col-good">FAP, Sinistralidade, Absenteísmo e Turnover</td></tr>
+      <tr><td class="row-label">Visibilidade do RH</td><td class="col-bad">Relatórios de ações</td><td class="col-good">Dashboard executivo</td></tr>
+      <tr><td class="row-label">Suporte à NR-1</td><td class="col-bad">Limitado</td><td class="col-good">Integrado</td></tr>
+      <tr><td class="row-label">Acompanhamento de ROI</td><td class="col-bad">Difícil de calcular</td><td class="col-good">Acompanhado por ciclo</td></tr>
+      <tr><td class="row-label">Resultado</td><td class="col-bad">Engajamento</td><td class="col-good">Impacto operacional e financeiro</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Como evolui a maturidade da gestão em saúde corporativa</h2>
+  <p>A maioria das organizações acredita que está gerenciando saúde quando, na prática, está apenas executando ações. A evolução normalmente acontece em quatro níveis:</p>
+
+  <div class="maturity-steps">
+    <div class="maturity-item">
+      <div class="maturity-num n1">1</div>
+      <div class="maturity-body"><h4>Programa Tradicional</h4><p>Foco em atividades. O sucesso é medido pela participação e pela quantidade de ações realizadas.</p></div>
+    </div>
+    <div class="maturity-item">
+      <div class="maturity-num n2">2</div>
+      <div class="maturity-body"><h4>Programa Estruturado</h4><p>Existe acompanhamento de adesão e satisfação. O sucesso é medido pelo engajamento.</p></div>
+    </div>
+    <div class="maturity-item">
+      <div class="maturity-num n3">3</div>
+      <div class="maturity-body"><h4>Gestão Baseada em Dados</h4><p>A organização passa a acompanhar indicadores de resultado: FAP, sinistralidade e absenteísmo.</p></div>
+    </div>
+    <div class="maturity-item">
+      <div class="maturity-num n4">4</div>
+      <div class="maturity-body"><h4>Inteligência em Saúde Corporativa</h4><p>A organização entende sua população, identifica riscos, define prioridades e toma decisões baseadas em dados. O resultado é avaliado pelo impacto no negócio.</p></div>
+    </div>
+  </div>
+
+  <h2>O que pode estar gerando custo na sua operação</h2>
+  <p>A maioria das organizações conhece seus sintomas. Poucas conseguem identificar as causas. O sistema da Spaço Quality realiza uma análise integrada das principais dimensões que impactam saúde, produtividade e indicadores operacionais:</p>
+
+  <div class="dim-grid">
+    <div class="dim-card"><div class="dim-icon">🧠</div><div class="dim-name">Saúde Mental e Psicossocial</div><div class="dim-desc">Burnout, ansiedade, estresse ocupacional e fatores relacionados à organização do trabalho.</div></div>
+    <div class="dim-card"><div class="dim-icon">🦴</div><div class="dim-name">Saúde Musculoesquelética</div><div class="dim-desc">Dor crônica, ergonomia, mobilidade e risco de afastamentos por LER/DORT.</div></div>
+    <div class="dim-card"><div class="dim-icon">❤️</div><div class="dim-name">Saúde Cardiovascular</div><div class="dim-desc">Hipertensão, fatores de risco cardíaco e eventos clínicos de maior impacto assistencial.</div></div>
+    <div class="dim-card"><div class="dim-icon">🩺</div><div class="dim-name">Saúde Metabólica</div><div class="dim-desc">Diabetes, obesidade, dislipidemias e condições associadas a sinistralidade elevada.</div></div>
+    <div class="dim-card"><div class="dim-icon">💤</div><div class="dim-name">Sono e Recuperação</div><div class="dim-desc">Fadiga, privação de sono e riscos relacionados à segurança e ao desempenho.</div></div>
+    <div class="dim-card"><div class="dim-icon">🏃</div><div class="dim-name">Estilo de Vida</div><div class="dim-desc">Hábitos que influenciam diretamente os indicadores de saúde da população.</div></div>
+  </div>
+
+  <div class="mid-cta">
+    <div class="mid-cta-text">
+      <h3>Conheça a metodologia aplicada à sua operação</h3>
+      <p>20 minutos de reunião de diagnóstico para entender onde estão os gaps e por onde começar.</p>
+    </div>
+    <a href="https://wa.me/5511983811360?text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20gostaria%20de%20entender%20como%20a%20Spa%C3%A7o%20Quality%20funciona%20como%20sistema%20de%20gest%C3%A3o%20de%20sa%C3%BAde%20corporativa.%20Quero%20marcar%20uma%20reuni%C3%A3o%20de%20diagn%C3%B3stico." target="_blank" rel="noopener" class="mid-cta-btn" onclick="gtmWhatsApp('mid_article')">Agendar reunião →</a>
+  </div>
+
+  <h2>Como funciona o Sistema de Inteligência em Saúde Corporativa</h2>
+
+  <div class="steps">
+    <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Diagnóstico Populacional</h4><p>Avaliação da população completa para compreender o perfil de saúde da organização. Parte da população inteira, não apenas dos casos já conhecidos.</p></div></div>
+    <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Estratificação de Risco</h4><p>Identificação dos grupos prioritários e dos fatores de maior impacto — clínicos, ergonômicos e psicossociais.</p></div></div>
+    <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Intervenção Direcionada</h4><p>Implementação de ações específicas para cada necessidade identificada, com foco no perfil de risco de cada grupo.</p></div></div>
+    <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Monitoramento Contínuo</h4><p>Acompanhamento permanente dos indicadores estratégicos com dashboard atualizado mensalmente.</p></div></div>
+    <div class="step-item"><div class="step-num">5</div><div class="step-body"><h4>Melhoria Contínua</h4><p>As decisões de cada ciclo são revisadas com base nos dados do ciclo anterior, tornando o sistema progressivamente mais preciso.</p></div></div>
+  </div>
+
+  <h2>O que o dashboard entrega para RH, SST e Diretoria</h2>
+  <p>O objetivo não é gerar mais relatórios. É organizar dados para apoiar tomada de decisão.</p>
+
+  <div class="dashboard-grid">
+    <div class="dashboard-card"><div class="dashboard-card-icon">👥</div><div class="dashboard-card-name">Indicadores Populacionais</div><div class="dashboard-card-desc">Visão consolidada da saúde da operação por setor, cargo e grupo.</div></div>
+    <div class="dashboard-card"><div class="dashboard-card-icon">⚠️</div><div class="dashboard-card-name">Indicadores de Risco</div><div class="dashboard-card-desc">Estratificação por fatores de risco, áreas e grupos populacionais com tendência mensal.</div></div>
+    <div class="dashboard-card"><div class="dashboard-card-icon">📋</div><div class="dashboard-card-name">Indicadores Previdenciários</div><div class="dashboard-card-desc">Monitoramento de fatores relacionados a afastamentos e FAP.</div></div>
+    <div class="dashboard-card"><div class="dashboard-card-icon">🏥</div><div class="dashboard-card-name">Indicadores Assistenciais</div><div class="dashboard-card-desc">Sinistralidade, utilização do plano e evolução clínica por grupo de risco.</div></div>
+    <div class="dashboard-card"><div class="dashboard-card-icon">📈</div><div class="dashboard-card-name">Indicadores Estratégicos</div><div class="dashboard-card-desc">Correlação entre saúde, produtividade, turnover e absenteísmo com acompanhamento de ROI.</div></div>
+    <div class="dashboard-card"><div class="dashboard-card-icon">🔒</div><div class="dashboard-card-name">Privacidade e LGPD</div><div class="dashboard-card-desc">O RH acessa o padrão do setor — nunca o dado pessoal de saúde. Protocolo conforme CFM e LGPD.</div></div>
+  </div>
+
+  <div class="highlight-box green">
+    <div class="highlight-box-title">✓ O que o CFO precisa saber</div>
+    <p>Quando a saúde corporativa chega à mesa da diretoria, a pergunta relevante não é quantas ações foram realizadas. É quais indicadores foram movimentados. Absenteísmo, sinistralidade, FAP, turnover — esses são os dados que conectam saúde a resultado financeiro. Organizações mais maduras tratam saúde como ativo estratégico, não como linha de benefícios.</p>
+  </div>
+
+  <h2>O que esperar nos primeiros 90 dias</h2>
+
+  <div class="timeline">
+    <div class="timeline-item"><span class="timeline-month">Mês 1</span><div class="timeline-body"><h4>Diagnóstico populacional completo</h4><p>Mapeamento dos fatores de risco da população inteira. Estratificação por setor, cargo e dimensão clínica.</p></div></div>
+    <div class="timeline-item"><span class="timeline-month">Mês 2</span><div class="timeline-body"><h4>Estratificação e início das intervenções</h4><p>Grupos prioritários identificados. Primeiras ações específicas por perfil de risco em andamento.</p></div></div>
+    <div class="timeline-item"><span class="timeline-month">Mês 3</span><div class="timeline-body"><h4>Primeiro dashboard executivo</h4><p>Indicadores e tendências visíveis. A organização passa a acompanhar a operação por riscos identificados — não apenas por ações realizadas.</p></div></div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="bottom-cta">
+    <div class="bottom-cta-badge">Diagnóstico Estratégico · 20 minutos</div>
+    <h2>Sua empresa precisa de mais ações<br>ou de melhores dados para decidir?</h2>
+    <p>A Spaço Quality apoia organizações a estruturar a gestão da saúde corporativa com base em dados populacionais, indicadores estratégicos e intervenções direcionadas.</p>
+    <div class="bottom-cta-features">
+      <span>✓ Diagnóstico populacional</span>
+      <span>✓ Estratificação de riscos</span>
+      <span>✓ Dashboard executivo</span>
+      <span>✓ Indicadores para NR-1</span>
+      <span>✓ FAP, Sinistralidade e Absenteísmo</span>
+      <span>✓ Acompanhamento de ROI</span>
+    </div>
+    <a href="https://wa.me/5511983811360?text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20gostaria%20de%20entender%20como%20a%20Spa%C3%A7o%20Quality%20funciona%20como%20sistema%20de%20gest%C3%A3o%20de%20sa%C3%BAde%20corporativa.%20Quero%20marcar%20uma%20reuni%C3%A3o%20de%20diagn%C3%B3stico." target="_blank" rel="noopener" class="bottom-cta-btn" onclick="gtmWhatsApp('bottom_cta')">Agendar Diagnóstico Estratégico →</a>
+    <p class="bottom-cta-sub">Resposta em até 1 hora em horário comercial · Sem compromisso.</p>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <img class="footer-logo" src="/assets/images/logos/1-Novo-logo-spaco-quality-Transparente.png" alt="Spaço Quality">
+  <div class="footer-center">
+    <p class="footer-text">© 2026 Spaço Quality · Inteligência em Saúde Ocupacional · Todos os direitos reservados</p>
+    <p class="footer-cnpj">CNPJ 05.911.180/0001-87</p>
+  </div>
+  <div class="footer-links">
+    <a href="/politica-de-privacidade.html">Política de Privacidade</a>
+    <span>·</span>
+    <a href="/termos-de-servico.html">Termos de Serviço</a>
+  </div>
+</footer>
+
+<script>
+  function gtmWhatsApp(position) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'whatsapp_click', click_position: position, click_url: 'https://wa.me/5511983811360', page_topic: 'saude_corporativa_dados', campaign_source: 'google_ads' });
+  }
+</script>
+</body>
+</html>

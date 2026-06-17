@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Absenteísmo elevado: como identificar padrões e atuar antes do afastamento | Spaço Quality</title>
+<meta name="description" content="Afastamentos e atestados recorrentes raramente acontecem por acaso. Descubra como identificar padrões de risco, reduzir custos e estruturar uma gestão preventiva baseada em dados.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --green-deep: #00473E; --green-mid: #00604F; --green-bright: #009B72;
+  --green-light: #E8F5F1; --green-lighter: #F2FAF7; --accent: #2DBD8F;
+  --red: #B83030; --red-light: #FEF0EE; --amber: #9A6200; --amber-light: #FEF6E4;
+  --black: #0E1612; --gray-dark: #3A4540; --gray: #5A6560;
+  --gray-light: #F2F5F4; --border: #D8E6E0; --white: #FFFFFF; --bg: #FAFCFB;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--black); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: white; border-bottom: 1px solid var(--border); height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; }
+.logo { height: 42px; width: auto; }
+.header-cta { background: var(--green-deep); color: white; padding: 9px 22px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+.header-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
+.article-hero { padding: 120px 24px 56px; max-width: 780px; margin: 0 auto; animation: fadeUp 0.5s ease forwards; }
+.category-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--amber-light); color: var(--amber); font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; border: 1px solid rgba(154,98,0,0.2); }
+.category-tag .dot { width: 5px; height: 5px; background: var(--amber); border-radius: 50%; }
+.article-title { font-family: 'DM Serif Display', serif; font-size: clamp(34px, 5vw, 54px); font-weight: 400; color: var(--black); line-height: 1.1; margin-bottom: 22px; }
+.article-title em { font-style: italic; color: var(--green-deep); }
+.article-lead { font-size: 18px; color: var(--gray-dark); line-height: 1.7; max-width: 640px; margin-bottom: 28px; }
+.article-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--gray); padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+.meta-author { display: flex; align-items: center; gap: 8px; font-weight: 500; color: var(--black); }
+.author-avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--green-light); color: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+.meta-sep { width: 3px; height: 3px; background: var(--border); border-radius: 50%; }
+.content-wrap { max-width: 780px; margin: 0 auto; padding: 0 24px 80px; }
+.diag-banner { background: linear-gradient(135deg, var(--green-deep) 0%, #003028 100%); border-radius: 12px; padding: 22px 26px; margin: 36px auto; max-width: 780px; display: flex; align-items: flex-start; gap: 16px; }
+.diag-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.diag-text h3 { font-size: 16px; font-weight: 600; color: white; margin-bottom: 4px; }
+.diag-text p { font-size: 14px; color: rgba(255,255,255,0.88); line-height: 1.5; }
+h2 { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 400; color: var(--black); margin: 44px 0 14px; line-height: 1.25; }
+h3 { font-size: 18px; font-weight: 600; color: var(--black); margin: 28px 0 10px; line-height: 1.35; }
+p { font-size: 16px; color: var(--gray-dark); line-height: 1.8; margin-bottom: 16px; }
+strong { color: var(--black); font-weight: 600; }
+.pull-quote { border-left: 4px solid var(--accent); padding: 16px 22px; margin: 32px 0; background: var(--green-lighter); border-radius: 0 8px 8px 0; }
+.pull-quote p { font-family: 'DM Serif Display', serif; font-size: 20px; font-style: italic; color: var(--green-deep); line-height: 1.5; margin: 0; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+.col-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; }
+.col-card.bad { border-top: 3px solid var(--red); }
+.col-card.good { border-top: 3px solid var(--green-bright); }
+.col-card-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 14px; }
+.col-card.bad .col-card-label { color: var(--red); }
+.col-card.good .col-card-label { color: var(--green-deep); }
+.col-card ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.col-card ul li { font-size: 14px; color: var(--gray-dark); line-height: 1.5; padding-left: 14px; position: relative; }
+.col-card ul li::before { content: '–'; position: absolute; left: 0; color: var(--gray); }
+.cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 24px 0; }
+.cost-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+.cost-card-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--gray); font-weight: 600; margin-bottom: 10px; }
+.cost-card ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.cost-card ul li { font-size: 13px; color: var(--gray-dark); padding-left: 12px; position: relative; }
+.cost-card ul li::before { content: '·'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.info-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; margin: 28px 0; }
+.info-box-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--green-deep); margin-bottom: 12px; }
+.info-box p { margin-bottom: 0; }
+.steps { display: flex; flex-direction: column; gap: 14px; margin: 20px 0; }
+.step-item { display: flex; gap: 16px; align-items: flex-start; background: white; border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+.step-num { width: 36px; height: 36px; border-radius: 8px; background: var(--green-deep); color: white; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; flex-shrink: 0; }
+.step-body h4 { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+.step-body p { font-size: 14px; color: var(--gray); margin: 0; line-height: 1.5; }
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+.checklist li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--gray-dark); line-height: 1.55; }
+.check-icon { width: 22px; height: 22px; border-radius: 6px; background: var(--green-light); color: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+.check-icon.amber { background: var(--amber-light); color: var(--amber); }
+.mid-cta { background: var(--green-deep); border-radius: 16px; padding: 32px; margin: 44px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.mid-cta-text h3 { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: white; margin: 0 0 6px; }
+.mid-cta-text p { font-size: 13px; color: rgba(255,255,255,0.75); margin: 0; line-height: 1.5; }
+.mid-cta-btn { background: white; color: var(--green-deep); padding: 13px 26px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: all 0.2s; flex-shrink: 0; }
+.mid-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.highlight-box { background: var(--green-lighter); border: 1px solid rgba(0,155,114,0.2); border-left: 4px solid var(--green-bright); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 28px 0; }
+.highlight-box-title { font-size: 13px; font-weight: 700; color: var(--green-deep); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.highlight-box p { font-size: 14px; color: #003028; margin: 0; line-height: 1.6; }
+.divider { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+.bottom-cta { background: linear-gradient(135deg, var(--green-deep) 0%, #003028 100%); border-radius: 20px; padding: 48px 40px; text-align: center; margin: 48px 0 0; position: relative; overflow: hidden; }
+.bottom-cta::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; border-radius: 50%; background: rgba(45,189,143,0.1); }
+.bottom-cta::after { content: ''; position: absolute; bottom: -60px; left: -20px; width: 160px; height: 160px; border-radius: 50%; background: rgba(45,189,143,0.07); }
+.bottom-cta-badge { display: inline-block; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); font-size: 11px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; margin-bottom: 20px; }
+.bottom-cta h2 { font-family: 'DM Serif Display', serif; font-size: clamp(24px, 4vw, 36px); color: white; margin: 0 0 12px; font-weight: 400; }
+.bottom-cta p { font-size: 15px; color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 28px; line-height: 1.65; }
+.bottom-cta-btn { display: inline-block; background: white; color: var(--green-deep); padding: 16px 40px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.2s; position: relative; z-index: 1; }
+.bottom-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+.bottom-cta-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 12px; position: relative; z-index: 1; }
+.bottom-cta-features { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 20px 0 28px; }
+.bottom-cta-features span { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 100px; }
+
+/* ── FOOTER CONFORMIDADE ── */
+.site-footer { border-top: 1px solid var(--border); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.footer-logo { height: 40px; width: auto; max-width: 180px; object-fit: contain; display: block; }
+.footer-center { display: flex; flex-direction: column; gap: 4px; text-align: center; }
+.footer-text { font-size: 12px; color: var(--gray); }
+.footer-cnpj { font-size: 11px; color: var(--gray); }
+.footer-links { display: flex; align-items: center; gap: 8px; }
+.footer-links a { font-size: 12px; color: var(--green-deep); text-decoration: none; }
+.footer-links a:hover { text-decoration: underline; }
+.footer-links span { color: var(--border); }
+
+@media (max-width: 640px) {
+  .site-header { padding: 0 18px; height: 56px; } .logo { height: 34px; } .header-cta { padding: 8px 14px; font-size: 12px; }
+  .article-hero { padding: 80px 18px 40px; } .two-col { grid-template-columns: 1fr; } .cost-grid { grid-template-columns: 1fr; }
+  .mid-cta { flex-direction: column; align-items: flex-start; } .mid-cta-btn { width: 100%; text-align: center; }
+  .bottom-cta { padding: 36px 22px; }
+  .site-footer { padding: 20px 18px; flex-direction: column; align-items: flex-start; }
+  .footer-center { text-align: left; }
+  .content-wrap { padding: 0 18px 60px; } .diag-banner { padding: 18px; }
+}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <img class="logo" src="/assets/images/logos/1-Novo-logo-spaco-quality-Transparente.png" alt="Spaço Quality">
+  <a href="https://wa.me/5511983811360?text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20estou%20com%20problema%20de%20absentismo%20e%20afastamentos%20recorrentes%20na%20minha%20empresa.%20Gostaria%20de%20entender%20como%20a%20Spa%C3%A7o%20Quality%20pode%20nos%20ajudar%20a%20reduzir%20esses%20n%C3%BAmeros." target="_blank" rel="noopener" class="header-cta" onclick="gtmWhatsApp('header')">Falar com especialista →</a>
+</header>
+
+<div class="article-hero">
+  <div class="category-tag"><span class="dot"></span> Absenteísmo &amp; Afastamentos</div>
+  <h1 class="article-title">Absenteísmo elevado:<br><em>como identificar padrões<br>e atuar antes do afastamento</em></h1>
+  <p class="article-lead">Afastamentos e atestados recorrentes raramente acontecem por acaso. Descubra como identificar padrões de risco, reduzir custos e estruturar uma gestão preventiva baseada em dados.</p>
+  <div class="article-meta">
+    <div class="meta-author"><div class="author-avatar">SQ</div> Equipe Spaço Quality</div>
+    <span class="meta-sep"></span> Gestão de Saúde Ocupacional
+    <span class="meta-sep"></span> Atualizado jun. 2026 · 8 min de leitura
+  </div>
+</div>
+
+<div class="diag-banner" style="padding-left:24px;padding-right:24px;">
+  <div class="diag-icon">📊</div>
+  <div class="diag-text">
+    <h3>O absenteísmo geralmente não está distribuído de forma uniforme pela organização.</h3>
+    <p>Na maioria das operações, existe uma concentração de afastamentos em determinados grupos. Sem dados estruturados, esses padrões permanecem invisíveis — e cada novo afastamento aumenta o impacto operacional, financeiro e previdenciário.</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <h2>Absenteísmo é um indicador. Não um evento isolado.</h2>
+  <p>Toda ausência tem uma história. Antes do afastamento costumam surgir sinais que passam despercebidos. Quando esses sinais não são identificados, o afastamento torna-se apenas uma questão de tempo.</p>
+  <p>Organizações que tratam o absenteísmo apenas como problema administrativo normalmente chegam tarde. Organizações que tratam o absenteísmo como indicador conseguem <strong>atuar antes que o problema aconteça</strong>.</p>
+
+  <div class="two-col">
+    <div class="col-card bad">
+      <div class="col-card-label">Sinais que passam despercebidos</div>
+      <ul>
+        <li>Dores musculoesqueléticas recorrentes</li>
+        <li>Fadiga física e mental</li>
+        <li>Estresse crônico</li>
+        <li>Distúrbios do sono</li>
+        <li>Sobrecarga organizacional</li>
+        <li>Problemas cardiovasculares</li>
+        <li>Fatores psicossociais do trabalho</li>
+      </ul>
+    </div>
+    <div class="col-card good">
+      <div class="col-card-label">O que a gestão preventiva entrega</div>
+      <ul>
+        <li>Identificação do padrão por setor e função</li>
+        <li>Diagnóstico antes do afastamento</li>
+        <li>Intervenção específica por fator de risco</li>
+        <li>Acompanhamento do impacto no FAP</li>
+        <li>Dados para RH, SST e Liderança</li>
+        <li>Conformidade com a NR-1</li>
+        <li>Indicadores acompanhados em 90 dias</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>O custo real do absenteísmo vai além dos dias perdidos</h2>
+  <p>A maioria das organizações calcula apenas os dias de ausência. Mas o impacto financeiro vai muito além.</p>
+
+  <div class="cost-grid">
+    <div class="cost-card"><div class="cost-card-label">Custos diretos</div><ul><li>Salário e encargos</li><li>Horas extras</li><li>Cobertura operacional</li><li>Contratação temporária</li></ul></div>
+    <div class="cost-card"><div class="cost-card-label">Custos indiretos</div><ul><li>Redução da produtividade</li><li>Aumento de erros e retrabalho</li><li>Impacto em qualidade</li><li>Atrasos operacionais</li></ul></div>
+    <div class="cost-card"><div class="cost-card-label">Custos previdenciários</div><ul><li>Afastamentos acima de 15 dias geram reflexos no FAP por até dois anos</li><li>Risco de enquadramento de NTEP</li></ul></div>
+    <div class="cost-card"><div class="cost-card-label">Custos frequentemente ignorados</div><ul><li>Presenteísmo: colaborador presente com desempenho comprometido</li><li>Impacto raramente visível nos relatórios tradicionais</li></ul></div>
+  </div>
+
+  <div class="info-box">
+    <div class="info-box-label">💡 O presenteísmo pode ter custo maior que o próprio absenteísmo</div>
+    <p>Nem todo colaborador em risco está afastado. Muitos continuam trabalhando com dor, fadiga, ansiedade ou privação de sono. O impacto aparece em menor produtividade, mais falhas e maior probabilidade de afastamento futuro. Organizações que monitoram apenas quem falta costumam ignorar a parcela mais cara do problema.</p>
+  </div>
+
+  <div class="pull-quote">
+    <p>"Organizações que tratam o absenteísmo como indicador conseguem atuar antes que o problema aconteça."</p>
+  </div>
+
+  <h2>Por que muitas ações de saúde não movem o indicador de absenteísmo</h2>
+  <p>A empresa investe em campanhas, SIPAT, palestras, programas de bem-estar e benefícios. Mas o indicador continua elevado.</p>
+  <p>O motivo é frequente: a maioria dessas iniciativas atua sobre a população de forma homogênea. O absenteísmo, porém, não surge de forma homogênea. Ele é resultado de <strong>fatores específicos que afetam grupos específicos</strong>. Sem identificar esses fatores, a organização atua sobre sintomas — e não sobre causas.</p>
+
+  <div class="mid-cta">
+    <div class="mid-cta-text">
+      <h3>Sua empresa conhece onde está o padrão?</h3>
+      <p>Solicite um diagnóstico inicial e descubra onde sua operação está perdendo produtividade sem identificar a causa.</p>
+    </div>
+    <a href="https://wa.me/5511983811360?text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20estou%20com%20problema%20de%20absentismo%20e%20afastamentos%20recorrentes%20na%20minha%20empresa.%20Gostaria%20de%20entender%20como%20a%20Spa%C3%A7o%20Quality%20pode%20nos%20ajudar%20a%20reduzir%20esses%20n%C3%BAmeros." target="_blank" rel="noopener" class="mid-cta-btn" onclick="gtmWhatsApp('mid_article')">Falar com especialista →</a>
+  </div>
+
+  <h2>O primeiro passo é entender a saúde da população inteira</h2>
+  <p>Uma gestão eficiente não começa pelos setores com maior número de afastamentos. Começa pelo entendimento da população como um todo.</p>
+  <p>A metodologia da Spaço Quality realiza um <strong>diagnóstico populacional abrangente</strong>, avaliando toda a operação para identificar fatores de risco predominantes, grupos mais vulneráveis, padrões de adoecimento, indicadores de saúde ocupacional, riscos psicossociais e riscos clínicos e metabólicos.</p>
+  <p>Somente após esse diagnóstico é realizada a estratificação dos grupos de risco e a definição das prioridades de intervenção. Essa abordagem transforma percepção em dados para decisão.</p>
+
+  <h2>Como estruturar a redução do absenteísmo</h2>
+
+  <div class="steps">
+    <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Diagnóstico populacional</h4><p>Avaliação da população completa para compreender o perfil de saúde da operação e identificar onde estão os riscos reais.</p></div></div>
+    <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Estratificação de risco</h4><p>Identificação dos grupos mais expostos aos diferentes fatores de risco — clínico, ergonômico e psicossocial.</p></div></div>
+    <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Intervenção direcionada</h4><p>Implementação de ações específicas para cada necessidade identificada — uma solução para cada perfil de risco, não um programa uniforme.</p></div></div>
+    <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Monitoramento contínuo</h4><p>Acompanhamento dos indicadores para avaliar evolução e ajustar estratégias. O que não é medido não se move.</p></div></div>
+  </div>
+
+  <h2>O que a NR-1 tem a ver com absenteísmo</h2>
+  <p>A atualização da NR-1 reforçou a necessidade de identificar e gerenciar fatores de risco ocupacional, incluindo os <strong>riscos psicossociais</strong>. O absenteísmo é um dos indicadores mais relevantes para compreender como esses riscos impactam a organização.</p>
+  <p>A ausência de monitoramento dificulta a identificação dos riscos, a definição de prioridades, a implementação de ações efetivas e a comprovação da gestão realizada em caso de fiscalização ou questionamento.</p>
+
+  <h2>Sinais de que existe uma causa raiz ainda não identificada</h2>
+
+  <ul class="checklist">
+    <li><div class="check-icon amber">!</div><span><strong>Concentração por setor:</strong> determinados setores apresentam absenteísmo muito acima da média da empresa.</span></li>
+    <li><div class="check-icon amber">!</div><span><strong>CIDs recorrentes:</strong> os mesmos códigos aparecem repetidamente nos atestados médicos.</span></li>
+    <li><div class="check-icon amber">!</div><span><strong>Crescimento por saúde mental:</strong> há aumento de afastamentos relacionados a ansiedade, estresse e burnout.</span></li>
+    <li><div class="check-icon amber">!</div><span><strong>Mudanças organizacionais:</strong> o número de ausências aumenta após reestruturações ou trocas de liderança.</span></li>
+    <li><div class="check-icon amber">!</div><span><strong>Retorno e reafastamento:</strong> colaboradores que voltam se afastam novamente em curto prazo.</span></li>
+    <li><div class="check-icon">✓</div><span><strong>Dados existem mas estão dispersos:</strong> atestados no RH, exames no PCMSO, queixas na Medicina Ocupacional — é possível cruzar essas informações e gerar dados para decisão.</span></li>
+  </ul>
+
+  <div class="highlight-box">
+    <div class="highlight-box-title">✓ O que diferencia quem controla absenteísmo de quem apenas administra atestados</div>
+    <p>Organizações reativas administram consequências. Organizações estratégicas acompanham riscos. Enquanto uma organiza afastamentos já ocorridos, a outra utiliza dados para identificar padrões, observar tendências e agir antes que a ausência aconteça. A diferença aparece nos indicadores — e nos custos.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="bottom-cta">
+    <div class="bottom-cta-badge">Diagnóstico Estratégico · Sem compromisso</div>
+    <h2>Descubra onde estão os fatores<br>que geram absenteísmo na sua operação</h2>
+    <p>A Spaço Quality utiliza uma metodologia de Inteligência em Saúde Corporativa que avalia toda a população de colaboradores, identifica padrões de risco e transforma dados dispersos em informações estruturadas para tomada de decisão.</p>
+    <div class="bottom-cta-features">
+      <span>✓ Diagnóstico populacional</span>
+      <span>✓ Estratificação de riscos</span>
+      <span>✓ Indicadores para RH, SST e Liderança</span>
+      <span>✓ Apoio à conformidade com a NR-1</span>
+      <span>✓ Gestão baseada em dados</span>
+    </div>
+    <a href="https://wa.me/5511983811360?text=Ol%C3%A1%2C%20vim%20pelo%20Google%20e%20estou%20com%20problema%20de%20absentismo%20e%20afastamentos%20recorrentes%20na%20minha%20empresa.%20Gostaria%20de%20entender%20como%20a%20Spa%C3%A7o%20Quality%20pode%20nos%20ajudar%20a%20reduzir%20esses%20n%C3%BAmeros." target="_blank" rel="noopener" class="bottom-cta-btn" onclick="gtmWhatsApp('bottom_cta')">Agendar Diagnóstico Estratégico →</a>
+    <p class="bottom-cta-sub">Resposta em até 1 hora em horário comercial · Sem compromisso.</p>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <img class="footer-logo" src="/assets/images/logos/1-Novo-logo-spaco-quality-Transparente.png" alt="Spaço Quality">
+  <div class="footer-center">
+    <p class="footer-text">© 2026 Spaço Quality · Inteligência em Saúde Ocupacional · Todos os direitos reservados</p>
+    <p class="footer-cnpj">CNPJ 05.911.180/0001-87</p>
+  </div>
+  <div class="footer-links">
+    <a href="/politica-de-privacidade.html">Política de Privacidade</a>
+    <span>·</span>
+    <a href="/termos-de-servico.html">Termos de Serviço</a>
+  </div>
+</footer>
+
+<script>
+  function gtmWhatsApp(position) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'whatsapp_click', click_position: position, click_url: 'https://wa.me/5511983811360', page_topic: 'absenteismo_afastamentos', campaign_source: 'google_ads' });
+  }
+</script>
+</body>
+</html>

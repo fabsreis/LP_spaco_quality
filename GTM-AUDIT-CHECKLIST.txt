@@ -1,0 +1,30 @@
+Auditoria GTM — Container GTM-TCVK6XH
+=====================================
+Executar em: https://tagmanager.google.com
+
+1. TAGS — revisar cada tag publicada
+   [ ] Manter apenas: Google Ads Conversion, GA4 (se usado), eventos whatsapp_click
+   [ ] Remover: Custom HTML desconhecidos, pixels de terceiros não autorizados
+   [ ] Remover: tags com redirect (window.location), document.write, eval
+   [ ] Verificar histórico de versões — quem adicionou tags recentes
+
+2. TRIGGERS — revisar cada trigger
+   [ ] Remover triggers que disparam em domínios externos
+   [ ] Remover triggers de timer/pageview suspeitos
+
+3. VARIÁVEIS
+   [ ] Remover variáveis JavaScript custom com código não auditado
+
+4. PUBLICAÇÃO
+   [ ] Criar versão limpa com nome: "Google Ads compliance — jun/2026"
+   [ ] Publicar e anotar número da versão: ___________
+
+5. TESTE PÓS-PUBLICAÇÃO
+   [ ] Abrir cada LP em aba anônima
+   [ ] DevTools > Network: confirmar apenas googletagmanager.com, fonts.googleapis.com, wa.me
+   [ ] Nenhum domínio desconhecido carregando scripts
+
+Tags esperadas (mínimo seguro):
+- GTM container snippet (no HTML — já presente)
+- GA4 ou Google Ads tag (se configurado pela equipe)
+- Nenhuma tag Custom HTML adicional sem necessidade
